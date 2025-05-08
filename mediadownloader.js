@@ -6,7 +6,6 @@ const ProgressBar = require('progress');
 
 class MediaDownloader {
     constructor(staticFolderName) {
-        // staticFolderName dizini, projenin ana dizininde yer alacak
         this.staticFolderName = staticFolderName; 
     }
 
@@ -31,7 +30,7 @@ class MediaDownloader {
     
     async downloadMedia(fileUrl, folderName) {
         try {
-            const staticFolderPath = path.join(process.cwd(), this.staticFolderName); // process.cwd() burada da kullanılıyor
+            const staticFolderPath = path.join(process.cwd(), this.staticFolderName); 
             const availableFolders = fs.readdirSync(staticFolderPath).filter(item => fs.statSync(path.join(staticFolderPath, item)).isDirectory());
 
             if (!availableFolders.includes(folderName)) {
